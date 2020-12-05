@@ -1,5 +1,6 @@
 import api from './apiConfig'
 
+
 export const signUp = async credentials => {
     console.log('this is for the signUp!!!!!!!', credentials)
   try {
