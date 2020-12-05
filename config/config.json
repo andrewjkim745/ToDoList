@@ -1,6 +1,6 @@
 {
   "development": {
-    "database": "todo_development",
+    "database": "todolist_development",
     "dialect": "postgres"
   },
   "test": {
