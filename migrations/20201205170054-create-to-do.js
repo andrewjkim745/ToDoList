@@ -14,6 +14,9 @@ module.exports = {
       task: {
         type: Sequelize.STRING
       },
+      userId: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
