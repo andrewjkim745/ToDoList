@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { Switch, Route } from 'react-router-dom'
-import { AuthContext } from '../contexts/AuthContext'
-import { Login } from '../screens/Login'
+// import { AuthContext } from '../contexts/AuthContext'
+import  Login from '../screens/Login'
 
 
 
@@ -9,11 +9,13 @@ import { Login } from '../screens/Login'
 
 export const Routes = () => {
     return (
-        <Switch>
+        // <Switch>
+        <>
             <Route
             exact path='/login'
-            render={Login}
+            component={Login}
             />
-        </Switch>
+        {/* </Switch> */}
+        </>
     )
 }
