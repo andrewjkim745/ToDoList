@@ -28,10 +28,14 @@
 .side-drawer {
   height: 100%;
   position: relative;
-  background-color:white;
+  background-color: #00d1b2;
   align-self: flex-end;
-  width: 90%;
+  width: 70%;
   justify-content: center;
+}
+
+.pointer { 
+  cursor: pointer;
 }
 
 @media screen and (min-width: 320px) and (max-width:768px) {

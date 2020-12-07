@@ -14,6 +14,7 @@ export default function Login() {
     const [email, setEmail] = useState('')
     const [error, setError] = useState(true)
     const [modal, openModal ] = useState(false)
+    const [hovered, setHovered] = useState(false)
 
 
     const usernameChange = (e) => {
@@ -39,8 +40,7 @@ export default function Login() {
         <div class='hero is-fullheight gradient'>
             <div class='hero-body'>
                 <div class='container boxshadow has-background-white is-large has-text-centered'>
-                    <div class='is-flex is-justify-content-space-between'>
-                        
+                    <div class='is-flex is-justify-content-space-between'>                
                         <div class='pad6 loginW is-flex is-flex-direction-column'>
                             <Title
                                 title='Account Login'
@@ -75,7 +75,7 @@ export default function Login() {
                             <button class='button is-primary my-6'>Login</button>
                         </div>
                         {modalRender()}
-                        <div onClick={()=> openModal(true)} class='has-background-primary sideW'>
+                        <div onMouseEnter={() => setHovered(true)} onClick={()=> openModal(true)} class={hovered ? 'has-background-primary sideW pointer' : 'has-background-primary sideW' }>
                             <p style={{ color: 'lightgrey' }} class='mt-6 is-size-1 is-size-5-mobile'>||</p>
                         </div>
                     </div>
