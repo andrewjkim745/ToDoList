@@ -8,11 +8,11 @@
   box-shadow: 0 0.5em 1em -0.125em rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02)
 }
 
-.tenW {
+.sideW {
   width: 5%;
 }
 
-.ninetyW {
+.loginW {
   width: 80%;
 }
 
@@ -24,6 +24,10 @@
 @media screen and (min-width: 320px) and (max-width:768px) {
   .pad6 {
       padding: 1rem;
+  }
+
+  .sideW {
+    width: 8%;
   }
 
 
