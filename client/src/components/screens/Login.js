@@ -29,7 +29,7 @@ export default function Login() {
 
     const modalRender = () => {
         return <Modal
-            className={modal ? 'modal is-active' : modal}
+            className={modal ? 'modal is-active' : 'modal'}
             onClick={() => openModal(false)}
         />
     }
@@ -40,7 +40,7 @@ export default function Login() {
             <div class='hero-body'>
                 <div class='container boxshadow has-background-white is-large has-text-centered'>
                     <div class='is-flex is-justify-content-space-between'>
-                        {modalRender()}
+                        
                         <div class='pad6 loginW is-flex is-flex-direction-column'>
                             <Title
                                 title='Account Login'
@@ -74,6 +74,7 @@ export default function Login() {
                             </div>
                             <button class='button is-primary my-6'>Login</button>
                         </div>
+                        {modalRender()}
                         <div onClick={()=> openModal(true)} class='has-background-primary sideW'>
                             <p style={{ color: 'lightgrey' }} class='mt-6 is-size-1 is-size-5-mobile'>||</p>
                         </div>
