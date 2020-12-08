@@ -15,6 +15,7 @@ export default function Login() {
     const [error, setError] = useState(true)
     const [modal, openModal ] = useState(false)
     const [hovered, setHovered] = useState(false)
+    const [notHovered, setNotHovered ] = useState(false)
 
 
     const usernameChange = (e) => {
@@ -30,11 +31,10 @@ export default function Login() {
 
     const modalRender = () => {
         return <Modal
-            className={modal ? 'modal is-active' : 'modal'}
+            className={modal ? 'modal is-active' : 'displayNone'}
             onClick={() => openModal(false)}
         />
     }
-
 
     return (
         <div class='hero is-fullheight gradient'>
@@ -75,8 +75,8 @@ export default function Login() {
                             <button class='button is-primary my-6'>Login</button>
                         </div>
                         {modalRender()}
-                        <div onMouseEnter={() => setHovered(true)} onClick={()=> openModal(true)} class={hovered ? 'has-background-primary sideW pointer' : 'has-background-primary sideW' }>
-                            <p style={{ color: 'lightgrey' }} class='mt-6 is-size-1 is-size-5-mobile'>||</p>
+                        <div onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} onClick={()=> openModal(true)} class={hovered ? 'has-background-primary sideW pointer' : 'has-background-primary sideW'}>
+                            <p style={{ color: 'lightgrey' }} class={hovered ? 'fadeOut mt-6 is-size-1 is-size-5-mobile' : 'mt-6 is-size-1 is-size-5-mobile'}>||</p>
                         </div>
                     </div>
                 </div>
