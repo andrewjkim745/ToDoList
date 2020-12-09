@@ -7,8 +7,11 @@ export default class ThemeContextProvider extends React.Component {
     state = {
         isLightTheme: true,
         light: { color: 'red', ui: 'grey', ux: 'red' },
-        dark: { color: 'black', ui: 'orange', ux: 'blue' }
+        dark: { color: 'black', ui: 'orange', ux: 'blue' },
+        user: null
     }
+
+    
 
     render() {
         return (

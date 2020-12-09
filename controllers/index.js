@@ -4,11 +4,12 @@ const { ToDos, User } = require("../models");
 
 const SALT_ROUNDS = 11;
 const TOKEN_KEY = "andrewscoolkey";
-// console.log('testing controllers')
+
+
 const signUp = async (req, res) => {
   try {
     console.log(":)");
-    const { username, email, password} = req.body;
+    const { username, email, password } = req.body;
     const password_digest = await bcrypt.hash(password, SALT_ROUNDS);
     const user = await User.create({
       username,
@@ -24,14 +25,15 @@ const signUp = async (req, res) => {
     const token = jwt.sign(payload, TOKEN_KEY);
     return res.status(201).json({ user, token });
   } catch (error) {
-    console.log("There was an error at sign up.");
+    console.log("There was an error at sign up.", req.body);
     return res.status(400).json({ error: error.message });
   }
 };
 
+
 const signIn = async (req, res) => {
   try {
-    console.log(req.body);
+    console.log('hello' ,req.body);
     const { username, password } = req.body;
     const user = await User.findOne({
       where: {

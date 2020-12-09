@@ -6,8 +6,9 @@ module.exports = (sequelize, DataTypes) => {
   },{})
 
   User.associate = function(models) {
-    User.hasMany(models.ToDos, {
+    User.hasMany(models.ToDo, {
       foreignKey: 'userId'
     })
   }
+  return User
 }

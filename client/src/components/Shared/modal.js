@@ -5,16 +5,26 @@ import  RegisterForm  from './RegisterForm'
 
 
 
-export const Modal = ({ className, onClick }) => {
+export const Modal = ({ onSubmit,onChange, usernameChange, setPChange, passwordChange, emailChange, className, onClick, username, password, confirmP, email  }) => {
+
     return (
         <div className={className}>
             <div onClick={onClick} class="modal-background"></div>
             <div class='background is-primary side-drawer'>
-               {/* <button onClick={onClick} class="modal-close is-large" aria-label="close"></button> */}
-                {/* <p>hi there</p> */}
-                <RegisterForm/>
+                <RegisterForm
+                onClick={onClick}
+                username={username}
+                email={email}
+                password={password}
+                confirmP={confirmP}
+                onChange={onChange}
+                onSubmit={onSubmit}
+                // usernameChange={usernameChange}
+                // passwordChange={passwordChange}
+                // emailChange={emailChange}
+                // setPChange={setPChange}
+                />
             </div>
-   
         </div>
     )
 }
