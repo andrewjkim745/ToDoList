@@ -7,17 +7,17 @@ import   Home  from '../screens/Home'
 
 
 
-export const Routes = ({ setUser }) => {
+export const Routes = ({ setUser, user }) => {
     return (
         // <Switch>
         <>
             <Route
             exact path='/'
-            render={props => <SignIn {...props} setUser={setUser}/>}
+            render={props => <SignIn {...props} setUser={setUser} />}
             />
             <Route
             exact path='/home'
-            component={Home}
+            render={props => <Home {...props} user={user}/>}
             />
         {/* </Switch> */}
         </>

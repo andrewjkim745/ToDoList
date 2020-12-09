@@ -14,15 +14,16 @@ export default class SignIn extends React.Component {
 
 
         this.state = {
-            // loginuser: '',
-            // loginPassword: '',
+            loginUsername: '',
+            loginPassword: '',
             username: '',
             password: '',
             confirmP: '',
             email: '',
             modal: false,
             hovered: false,
-            hidden: true
+            hidden: true,
+            registerMsg: ''
         }
     }
 
@@ -39,14 +40,15 @@ export default class SignIn extends React.Component {
 
         const { history, setUser } = this.props
 
+        console.log(this.state)
         signInUser(this.state)
             .then(res => setUser(res.user))
             .then(() => history.push('/Home'))
             .catch(error => {
                 console.error(error)
                 this.setState({
-                    username: '',
-                    password: ''
+                    loginUsername: '',
+                    loginPassword: ''
                 })
             })
     }
@@ -57,17 +59,26 @@ export default class SignIn extends React.Component {
         const { history, setUser } = this.props;
     
         signUp(this.state)
-          .then(() => signInUser(this.state))
+        //   .then(() => signInUser(this.state))
           .then(res => setUser(res.user))
-          .then(() => history.push("/Home"))
-          .catch(error => {
-            console.error(error);
-            this.setState({
+          this.setState({
+              username: '',
               email: '',
               password: '',
-              confirmP: ''
-            });
-          });
+              confirmP: '',
+              registerMsg: 'Register Success!'
+          })
+        //   .then(() => history.push("/Home"))
+        //   .catch(error => {
+        //     console.error(error);
+            // this.setState({
+            // username: '',
+            //   email: '',
+            //   password: '',
+            //   confirmP: '',
+            //   registerMsg: 'Register Success'
+            // });
+        //   });
       };
 
     
@@ -75,26 +86,23 @@ export default class SignIn extends React.Component {
 
     modalRender = () => {
 
-        const { username, email, password, modal, confirmP } = this.state
+        const { registerMsg, loginUsername, loginPassword, email, modal, confirmP } = this.state
         return <Modal
             className={modal ? 'modal is-active' : 'displayNone'}
             onClick={() => this.setState({modal: false})}
-            username={username}
+            username={loginUsername}
             email={email}
-            password={password}
+            password={loginPassword}
             confirmP={confirmP}
             onChange={this.handleChange}
             onSubmit={this.onSignUp}
-        // usernameChange={usernameChange}
-        // passwordChange={passwordChange}
-        // confirmPChange={confirmPasswordChange}
-        // emailChange={emailChange}
+            registerMsg={registerMsg}
         />
     }
 
 
     render() {
-        const { username, password, email, modal, hovered, hidden } = this.state
+        const { loginUsername, loginPassword, email, modal, hovered, hidden, registerMsg } = this.state
         return (
             <div class='hero is-fullheight gradient'>
                 <div class='hero-body'>
@@ -112,8 +120,8 @@ export default class SignIn extends React.Component {
                                         label='Username'
                                         variant='outlined'
                                         margin='normal'
-                                        name='username'
-                                        value={username}
+                                        name='loginUsername'
+                                        value={loginUsername}
                                         onChange={this.handleChange}
                                     />
                                     <TextField
@@ -122,9 +130,9 @@ export default class SignIn extends React.Component {
                                         variant='outlined'
                                         margin='normal'
                                         color='primary'
-                                        name='password'
+                                        name='loginPassword'
                                         type={hidden ? 'password' : 'text'}
-                                        value={password}
+                                        value={loginPassword}
                                         onChange={this.handleChange}
                                     />
                                 <div class='is-flex is-justify-content-space-between is-align-items-center'>

@@ -19,12 +19,15 @@ export default class Container extends React.Component {
 
 
     render() {
+
+        const { user, toDos } = this.state
         return (
 
         
         <>
         <Routes
         setUser={this.setUser}
+        user={user}
         />
         </>
         )
