@@ -8,6 +8,7 @@ export const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         // axios sign in method goes here to set current user
+        
     }, [currentUser]);
 
 

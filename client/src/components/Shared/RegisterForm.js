@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Title } from './Title'
 
 
-export default function RegisterForm({ onClick}) {
+export default function RegisterForm({ onSubmit, onChange, confirmPChange, usernameChange, passwordChange, emailChange, onClick, username, password, confirmP, email}) {
     return (
         <div class='container is-flex is-justify-content-center fadeIn'>
             <div class='column is-two-thirds p-6'>
@@ -17,17 +17,27 @@ export default function RegisterForm({ onClick}) {
                 <input
                     class='input my-3'
                     placeholder='USERNAME'
+                    value={username}
+                    onChange={onChange}
                 />
                 <input class='input mb-3'
                     placeholder='PASSWORD'
+                    value={password}
+                    onChange={onChange}
                 />
                 <input class='input mb-3'
                     placeholder='CONFIRM PASSWORD'
+                    name='confirmP'
+                    value={confirmP}
+                    onChange={onChange}
                 />
                 <input class='input mb-3'
                     placeholder='EMAIL ADDRESS'
+                    name='email'
+                    value={email}
+                    onChange={onChange}
                 />
-                <button class='button is-white has-text-primary'>Register</button>
+                <button onClick={onSubmit} class='button is-white has-text-primary'>Register</button>
             </div>
         </div>
     )

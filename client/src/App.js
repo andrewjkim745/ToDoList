@@ -1,12 +1,12 @@
 import React from "react";
 import ThemeContextProvider from './components/contexts/ThemeContext'
-import { Routes } from './components/routes/index'
+import  Container from './components/container'
 import './App.css'
 function App() {
 
   return (
 <ThemeContextProvider>
-  <Routes/>
+  <Container/>
 </ThemeContextProvider>
   );
 }
