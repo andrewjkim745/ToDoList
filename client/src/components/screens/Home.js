@@ -1,30 +1,15 @@
 import React from 'react'
+import  { Navbar }  from '../Shared/Navbar'
 
 
 
-
-export default class Home extends React.Component {
-    constructor() {
-        super()
-
-
-        this.state = {
-        }
-    }
-
-
-
-
-
-
-
-
-    render () {
-        return (
-            <>
-            <p>hi</p>
-            </>
-
-        )
-    }
+export const Home = ({ user, clearUser }) => {
+    return (
+        <>
+        <Navbar
+        user={user}
+        clearUser={clearUser}
+        />
+        </>
+    )
 }

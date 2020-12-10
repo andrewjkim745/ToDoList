@@ -5,7 +5,7 @@ import  RegisterForm  from './RegisterForm'
 
 
 
-export const Modal = ({ registerMsg, onSubmit,onChange, usernameChange, setPChange, passwordChange, emailChange, className, onClick, username, password, confirmP, email  }) => {
+export const Modal = ({ registerMsg, onSubmit,onChange,  className, onClick, username, password, confirmP, email  }) => {
 
     return (
         <div className={className}>

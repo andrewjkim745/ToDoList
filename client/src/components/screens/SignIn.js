@@ -9,11 +9,12 @@ import { signUp } from '../../services/auth'
 
 
 export default class SignIn extends React.Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
 
 
         this.state = {
+            user: null,
             loginUsername: '',
             loginPassword: '',
             username: '',
@@ -39,16 +40,19 @@ export default class SignIn extends React.Component {
         event.preventDefault()
 
         const { history, setUser } = this.props
-
-        console.log(this.state)
         signInUser(this.state)
             .then(res => setUser(res.user))
+            // .then(res => console.log(res.user))
+            // .then(res => this.setState({
+            //     user: res.user
+            // }))
+            // .then(console.log('State User', this.state.user)) <--- returns null for user
             .then(() => history.push('/Home'))
             .catch(error => {
                 console.error(error)
                 this.setState({
                     loginUsername: '',
-                    loginPassword: ''
+                    loginPassword: '',
                 })
             })
     }
@@ -59,7 +63,7 @@ export default class SignIn extends React.Component {
         const { history, setUser } = this.props;
     
         signUp(this.state)
-        //   .then(() => signInUser(this.state))
+          .then(() => signInUser(this.state))
           .then(res => setUser(res.user))
           this.setState({
               username: '',
@@ -86,13 +90,13 @@ export default class SignIn extends React.Component {
 
     modalRender = () => {
 
-        const { registerMsg, loginUsername, loginPassword, email, modal, confirmP } = this.state
+        const { registerMsg, username, password, email, modal, confirmP } = this.state
         return <Modal
             className={modal ? 'modal is-active' : 'displayNone'}
             onClick={() => this.setState({modal: false})}
-            username={loginUsername}
+            username={username}
             email={email}
-            password={loginPassword}
+            password={password}
             confirmP={confirmP}
             onChange={this.handleChange}
             onSubmit={this.onSignUp}

@@ -2,12 +2,12 @@ import React, { useContext } from 'react'
 import { Switch, Route } from 'react-router-dom'
 // import { AuthContext } from '../contexts/AuthContext'
 import  SignIn  from '../screens/SignIn'
-import   Home  from '../screens/Home'
+import   { Home }  from '../screens/Home'
 
 
 
 
-export const Routes = ({ setUser, user }) => {
+export const Routes = ({ setUser, user, clearUser }) => {
     return (
         // <Switch>
         <>
@@ -17,7 +17,7 @@ export const Routes = ({ setUser, user }) => {
             />
             <Route
             exact path='/home'
-            render={props => <Home {...props} user={user}/>}
+            render={props => <Home {...props} user={user} clearUser={clearUser}  />}
             />
         {/* </Switch> */}
         </>

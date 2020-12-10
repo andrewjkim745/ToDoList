@@ -17,13 +17,13 @@ export default function RegisterForm({ registerMsg, onSubmit, onChange, confirmP
                 <input
                     class='input my-3'
                     placeholder='USERNAME'
-                    name='loginUsername'
+                    name='username'
                     value={username}
                     onChange={onChange}
                 />
                 <input class='input mb-3'
                     placeholder='PASSWORD'
-                    name='loginPassword'
+                    name='password'
                     value={password}
                     onChange={onChange}
                 />
