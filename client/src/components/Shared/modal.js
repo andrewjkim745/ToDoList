@@ -10,7 +10,7 @@ export const Modal = ({ registerMsg, onSubmit,onChange,  className, onClick, use
     return (
         <div className={className}>
             <div onClick={onClick} class="modal-background"></div>
-            <div class='background is-primary side-drawer'>
+            <div class=' materialui side-drawer'>
                 <RegisterForm
                 onClick={onClick}
                 username={username}
@@ -20,10 +20,6 @@ export const Modal = ({ registerMsg, onSubmit,onChange,  className, onClick, use
                 onChange={onChange}
                 onSubmit={onSubmit}
                 registerMsg={registerMsg}
-                // usernameChange={usernameChange}
-                // passwordChange={passwordChange}
-                // emailChange={emailChange}
-                // setPChange={setPChange}
                 />
             </div>
         </div>

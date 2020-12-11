@@ -42,11 +42,6 @@ export default class SignIn extends React.Component {
         const { history, setUser } = this.props
         signInUser(this.state)
             .then(res => setUser(res.user))
-            // .then(res => console.log(res.user))
-            // .then(res => this.setState({
-            //     user: res.user
-            // }))
-            // .then(console.log('State User', this.state.user)) <--- returns null for user
             .then(() => history.push('/Home'))
             .catch(error => {
                 console.error(error)
@@ -72,17 +67,6 @@ export default class SignIn extends React.Component {
               confirmP: '',
               registerMsg: 'Register Success!'
           })
-        //   .then(() => history.push("/Home"))
-        //   .catch(error => {
-        //     console.error(error);
-            // this.setState({
-            // username: '',
-            //   email: '',
-            //   password: '',
-            //   confirmP: '',
-            //   registerMsg: 'Register Success'
-            // });
-        //   });
       };
 
     
@@ -115,9 +99,8 @@ export default class SignIn extends React.Component {
                             <div class='pad6 loginW is-flex is-flex-direction-column'>
                                 <Title
                                     title='Account Login'
-                                    color='primary'
                                     size='1 is-size-5-mobile'
-                                    className='my-6'
+                                    className='my-6 materialuiText'
                                 />
                                     <TextField
                                         id='outlined-basic'
@@ -144,12 +127,12 @@ export default class SignIn extends React.Component {
                                             <input class='mr-1 is-size-5' type="checkbox" onClick={() => this.setState({ hidden: !hidden})} />
                                             Show Password
                                         </label>
-                                        <a class='has-text-primary is-size-5 is-size-6-mobile'>Forgot Password?</a>
+                                        <a class='materialuiText is-size-5 is-size-6-mobile'>Forgot Password?</a>
                                     </div>
-                                    <button onClick={this.onSignIn}class='button is-primary my-6'>Login</button>
+                                    <button onClick={this.onSignIn}class='button materialui my-6'>Login</button>
                             </div>
                             {this.modalRender()}
-                                <div onMouseEnter={() => this.setState({hovered: true})} onMouseLeave={() => this.setState({ hovered: false })} onClick={()=> this.setState({modal: true})} class={hovered ? 'has-background-primary sideW pointer' : 'has-background-primary sideW'}>
+                                <div onMouseEnter={() => this.setState({hovered: true})} onMouseLeave={() => this.setState({ hovered: false })} onClick={()=> this.setState({modal: true})} class={hovered ? 'materialui sideW pointer' : 'materialui sideW'}>
                                     <p style={{ color: 'lightgrey' }} class={hovered ? 'fadeOut mt-6 is-size-1 is-size-5-mobile' : 'mt-6 is-size-1 is-size-5-mobile'}>||</p>
                                 </div>
                         </div>

@@ -7,6 +7,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 import DraftsIcon from '@material-ui/icons/Drafts';
 import NoteIcon from '@material-ui/icons/Note';
+import HomeIcon from '@material-ui/icons/Home';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -20,13 +21,12 @@ const d = new Date();
 
 export const SideList = ({landingToggle, todoToggle }) => {
     const classes = useStyles();
-    console.log(d)
     return (
         <div className={classes.root}>
             <List component="nav" aria-label="main mailbox folders">
                 <ListItem button onClick={landingToggle}>
                     <ListItemIcon>
-                        <NoteIcon/>
+                        <HomeIcon/>
                     </ListItemIcon>
                     <ListItemText primary="Home" />
                 </ListItem>

@@ -8,7 +8,8 @@ export default function RegisterForm({ registerMsg, onSubmit, onChange, confirmP
             <div class='column is-two-thirds p-6'>
                 <div class='is-flex is-justify-content-space-between'>
                     <Title
-                        size='1 is-size-5-mobile'
+                        alignment='is-centered'
+                        size='2 is-size-5-mobile'
                         color='white'
                         title='Register Account'
                     />

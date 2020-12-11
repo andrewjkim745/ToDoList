@@ -5,7 +5,7 @@ import React from 'react'
 
 export const Landing = () => {
     return (
-        <div class='hero is-fullheight'>
+        <div class='hero is-medium'>
             <div class='hero-body'>
                 <div class='container has-text-centered'>
                     <h1 class='title is size-3 is-size-5-mobile'>Welcome to your ToDo WebApp</h1>

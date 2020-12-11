@@ -1,5 +1,6 @@
 .gradient {
-  background:linear-gradient(120deg, #00d1b2, #FFFFFF);
+  background: rgb(68,163,207);
+  background: linear-gradient(260deg, rgba(68,163,207,1) 0%, rgba(63,81,181,1) 100%);
 }
 
 .boxshadow {
@@ -46,11 +47,21 @@
   animation-fill-mode: forwards;
   transition: 1s ease-in;
 }
-
+.point {
+  cursor: pointer;
+}
 .pointerOut {
   animation-name: sideBarHoverLeave;
   animation-duration: 1s;
   transition: 1s ease-out;
+}
+
+.materialui {
+  background-color: #3f51b5
+  
+}
+.materialuiText {
+  color: #3f51b5
 }
 
 .fadeIn {

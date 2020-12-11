@@ -1,10 +1,11 @@
 import React, { useState } from 'react' 
 import  CreateModal from './CreateModal'
+import UpdateModal from './UpdateModal'
 import Title from '../Shared/Title'
 
 
 
-export default function Todos({ todos, onSubmit, todo, onChange }) {
+export default function Todos({ updateSubmit, updateModalClose, onSubmit, todo, onChange, className }) {
 
 
 
@@ -22,6 +23,13 @@ export default function Todos({ todos, onSubmit, todo, onChange }) {
         onSubmit={onSubmit}
         onChange={onChange}
         />
+        {/* <UpdateModal
+        className={className}
+        onClick={updateModalClose}
+        todo={todo}
+        updateSubmit={updateSubmit}
+        onChange={onChange}
+        /> */}
         </>
     )
 }

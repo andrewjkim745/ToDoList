@@ -1,11 +1,13 @@
 import React from 'react'
-import { Home } from './Home'
 import { Navbar } from '../Shared/Navbar'
 import { Landing } from '../Shared/Landing'
 import { SideList } from '../Shared/SideList'
-import { getItems, createItem } from '../../services/todos'
+import { getItems, createItem, deleteItem } from '../../services/todos'
 import  ToDos  from '../Shared/ToDos'
-
+import EditIcon from '@material-ui/icons/Edit';
+import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
+import { Link } from 'react-router-dom'
+import Moment from 'react-moment'
 
 export default class HomeContainer extends React.Component {
     constructor(props) {
@@ -20,24 +22,20 @@ export default class HomeContainer extends React.Component {
                 task: ''
             },
             todos: [],
-            createdToDo: null
+            createdToDo: null,
+            updateModal: false,
+            updated: false
         }
     }
 
     async componentDidMount() {
         this.fetchItems()
-        // getItems()
-        //     .then(res => this.setState({
-        //         todos: res
-        //     }))
-        //     .then(console.log('current state of todos',this.state.todos))
     }
 
     fetchItems = async () => {
         try {
             const todos = await getItems()
             this.setState({ todos })
-            console.log('set state of todos', this.state.todos)
         } catch (err) {
             console.error(err)
         }
@@ -46,6 +44,8 @@ export default class HomeContainer extends React.Component {
     handleSubmit = event => {
         event.preventDefault()
         createItem(this.state.todo)
+        .then(this.fetchItems())
+        .then(this.fetchItems())
           .then(res =>
             res.status === 201
               ? this.setState({ createdToDo: res.data.item })
@@ -74,6 +74,12 @@ export default class HomeContainer extends React.Component {
         })
     }
 
+    destroy = (todo) => {
+        deleteItem(todo.id)
+        .then(this.fetchItems())
+        .then(this.fetchItems())
+      }
+
 
     renderPage = () => {
         if (this.state.displayToDos === true && this.state.displayLanding === false) {
@@ -84,16 +90,38 @@ export default class HomeContainer extends React.Component {
                 onSubmit={this.handleSubmit}
                 onChange={this.handleChange}
                 todos={this.state.todos}
-                 />
+                />
                 <div class='hero is-fullheight'>
                     <div class='container'>
                     {this.state.todos.length ? this.state.todos.map(todo => {
                         return (
+                            <div class='column'>
                             <div class='card my-6'>
                                 <div class='card-content'>
-                                <h1 class='is-size-2 is-size-5-mobile'>{todo.title}</h1>
-                                <h3 class='is-size-3 is-size-6-mobile'>{todo.task}</h3>
+                                <p class='subtitle has-text-weight-light is-size-6'>
+                                    Posted <Moment fromNow>{todo.createdAt}</Moment>
+                                </p>
+                                <p class='subtitle has-text-weight-light is-size-6'>
+                                    Edited <Moment fromNow>{todo.updatedAt}</Moment>
+                                </p>
+                                <h1 class='is-size-2 is-size-4-mobile'>{todo.title}</h1>
+                                <h3 class='is-size-4 is-size-6-mobile'>{todo.task}</h3>
                                 </div>
+                                <div class='card-footer'>
+                                    <div class='card-footer-item'>
+                                    <Link exact to={`/todos/${todo.id}`}>
+                                        <EditIcon/>
+                                    </Link>
+                                    </div>                             
+                                    <div class='card-footer-item'>
+                                        <DeleteOutlineIcon
+                                        className='point'
+                                        Icon color='primary'
+                                        onClick={() => this.destroy(todo)}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
                             </div>
                         )
                     })
