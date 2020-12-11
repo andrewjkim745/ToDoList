@@ -15,7 +15,6 @@ export default class Container extends React.Component {
         }
     }
 
-
     setUser = user => this.setState({ user })
 
     clearUser = () => this.setState({ user: null })
@@ -34,14 +33,10 @@ export default class Container extends React.Component {
         })
     }
 
-
-
     render() {
 
-        const { user, toDos } = this.state
+        const { user } = this.state
         return (
-
-        
         <>
         <Routes
         setUser={this.setUser}

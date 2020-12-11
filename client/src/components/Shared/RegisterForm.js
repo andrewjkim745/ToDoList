@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Title } from './Title'
 
 
-export default function RegisterForm({ registerMsg, onSubmit, onChange, confirmPChange, usernameChange, passwordChange, emailChange, onClick, username, password, confirmP, email}) {
+export default function RegisterForm({ registerMsg, onSubmit, onChange, onClick, username, password, confirmP, email}) {
     return (
         <div class='container is-flex is-justify-content-center fadeIn'>
             <div class='column is-two-thirds p-6'>
@@ -43,8 +43,8 @@ export default function RegisterForm({ registerMsg, onSubmit, onChange, confirmP
                     onChange={onChange}
                 />
                 <button onClick={onSubmit} class='button materialui has-text-white'>Register</button>
-                <p class={registerMsg ? 'title is-size-2' : 'displayNone'}>{registerMsg}</p>
-                <p class={registerMsg ? 'subtitle is size-4' : 'displayNone'}> stay or <a href='/home'>redirect to home? </a></p>
+                <p class={registerMsg ? 'title is-size-2 fadeIn has-text-white' : 'displayNone'}>{registerMsg}</p>
+                
             </div>
         </div>
     )

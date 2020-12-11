@@ -1,6 +1,5 @@
-import React, { useContext } from 'react'
-import { Switch, Route } from 'react-router-dom'
-// import { AuthContext } from '../contexts/AuthContext'
+import React from 'react'
+import { Route } from 'react-router-dom'
 import  SignIn  from '../screens/SignIn'
 import  HomeContainer  from '../screens/HomeContainer'
 import UpdateForm from '../Shared/UpdateForm'
@@ -9,7 +8,6 @@ import UpdateForm from '../Shared/UpdateForm'
 
 export const Routes = ({ setUser, user, clearUser, landingToggle, todoToggle,  }) => {
     return (
-        // <Switch>
         <>
             <Route
             exact path='/'
@@ -23,7 +21,6 @@ export const Routes = ({ setUser, user, clearUser, landingToggle, todoToggle,  }
             exact path='/todos/:id'
             component={UpdateForm}
             />
-        {/* </Switch> */}
         </>
     )
 }

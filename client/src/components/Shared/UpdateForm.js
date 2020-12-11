@@ -1,7 +1,6 @@
 import React from 'react'
 import { updateItem, getItemById } from '../../services/todos'
 import { Title } from '../Shared/Title'
-import axios from 'axios'
 
 
 

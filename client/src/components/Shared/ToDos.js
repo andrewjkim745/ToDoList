@@ -23,13 +23,6 @@ export default function Todos({ updateSubmit, updateModalClose, onSubmit, todo, 
         onSubmit={onSubmit}
         onChange={onChange}
         />
-        {/* <UpdateModal
-        className={className}
-        onClick={updateModalClose}
-        todo={todo}
-        updateSubmit={updateSubmit}
-        onChange={onChange}
-        /> */}
         </>
     )
 }

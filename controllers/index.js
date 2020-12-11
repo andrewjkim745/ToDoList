@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 const { ToDo, User } = require("../models");
 
 const SALT_ROUNDS = 11;
-const TOKEN_KEY = process.env.TOKEN_KEY
+const TOKEN_KEY = 'andrewscoolkey'
 
 
 const signUp = async (req, res) => {

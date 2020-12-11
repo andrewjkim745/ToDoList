@@ -1,6 +1,6 @@
 import React from 'react'
 import { signInUser } from '../../services/auth'
-import { Modal } from '../Shared/Modal'
+import { Modal } from '../Shared/modal'
 import { Title } from '../Shared/Title'
 import { TextField } from '@material-ui/core'
 import { signUp } from '../../services/auth'
@@ -87,6 +87,7 @@ export default class SignIn extends React.Component {
             onSubmit={this.onSignUp}
             registerMsg={registerMsg}
         />
+        
     }
 
 
@@ -134,7 +135,7 @@ export default class SignIn extends React.Component {
                                     <button onClick={this.onSignIn}class='button materialui my-6 has-text-white'>Login</button>
                             </div>
                             {this.modalRender()}
-                                <div onMouseEnter={() => this.setState({hovered: true})} onMouseLeave={() => this.setState({ hovered: false })} onClick={()=> this.setState({modal: true})} class={hovered ? 'materialui sideW pointer' : 'materialui sideW'}>
+                                <div onMouseEnter={() => this.setState({hovered: true})} onMouseLeave={() => this.setState({ hovered: false })} onClick={()=> this.setState({modal: true, registerMsg: ''})} class={hovered ? 'materialui sideW pointer' : 'materialui sideW'}>
                                     <p style={{ color: 'lightgrey' }} class={hovered ? 'fadeOut mt-6 is-size-1 is-size-5-mobile' : 'mt-6 is-size-1 is-size-5-mobile'}>||</p>
                                 </div>
                         </div>

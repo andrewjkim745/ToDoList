@@ -5,7 +5,6 @@ export const signUp = async credentials => {
   try {
     const resp = await api.post('/sign-up', credentials)
     localStorage.setItem('token', resp.data.token)
-    localStorage.setItem('user', resp.data.user.username)
     return resp.data
   } catch (error) {
     throw error
@@ -16,8 +15,6 @@ export const signInUser = async credentials => {
   try {
     const resp = await api.post('/sign-in', credentials)
     localStorage.setItem('token', resp.data.token)
-    localStorage.setItem('user', resp.data.user)
-    
     return resp.data
   } catch (error) {
     throw error
