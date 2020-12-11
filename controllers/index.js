@@ -8,7 +8,6 @@ const TOKEN_KEY = 'andrewscoolkey'
 
 const signUp = async (req, res) => {
   try {
-    console.log(":)");
     const { username, email, password } = req.body;
     const password_digest = await bcrypt.hash(password, SALT_ROUNDS);
     const user = await User.create({
@@ -99,10 +98,6 @@ const getAllToDos = async (req, res) => {
   }
 };
 
-
-
-
-//do we need getAllUsers?
 
 const getToDoById = async (req, res) => {
   try {

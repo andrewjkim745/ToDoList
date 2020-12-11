@@ -12,7 +12,6 @@ router.get('/todos', controllers.getAllToDos)
 router.get('/todos/:id', controllers.getToDoById)
 router.put('/todos/:id', controllers.updateToDo)
 router.delete('/todos/:id', controllers.deleteToDo)
-// router.put('/change-password/:id', controllers.changePassword)
 
 
 module.exports = router;
