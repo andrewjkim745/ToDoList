@@ -8,6 +8,7 @@ import { signUp } from '../../services/auth'
 
 
 
+
 export default class SignIn extends React.Component {
     constructor(props) {
         super(props)
@@ -102,6 +103,7 @@ export default class SignIn extends React.Component {
                                     size='1 is-size-5-mobile'
                                     className='my-6 materialuiText'
                                 />
+                                    
                                     <TextField
                                         id='outlined-basic'
                                         label='Username'
@@ -129,7 +131,7 @@ export default class SignIn extends React.Component {
                                         </label>
                                         <a class='materialuiText is-size-5 is-size-6-mobile'>Forgot Password?</a>
                                     </div>
-                                    <button onClick={this.onSignIn}class='button materialui my-6'>Login</button>
+                                    <button onClick={this.onSignIn}class='button materialui my-6 has-text-white'>Login</button>
                             </div>
                             {this.modalRender()}
                                 <div onMouseEnter={() => this.setState({hovered: true})} onMouseLeave={() => this.setState({ hovered: false })} onClick={()=> this.setState({modal: true})} class={hovered ? 'materialui sideW pointer' : 'materialui sideW'}>
