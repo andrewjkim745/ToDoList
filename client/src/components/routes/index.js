@@ -2,12 +2,12 @@ import React, { useContext } from 'react'
 import { Switch, Route } from 'react-router-dom'
 // import { AuthContext } from '../contexts/AuthContext'
 import  SignIn  from '../screens/SignIn'
-import   { Home }  from '../screens/Home'
+import  HomeContainer  from '../screens/HomeContainer'
 
 
 
 
-export const Routes = ({ setUser, user, clearUser }) => {
+export const Routes = ({ setUser, user, clearUser, landingToggle, todoToggle,  }) => {
     return (
         // <Switch>
         <>
@@ -17,7 +17,7 @@ export const Routes = ({ setUser, user, clearUser }) => {
             />
             <Route
             exact path='/home'
-            render={props => <Home {...props} user={user} clearUser={clearUser}  />}
+            render={props => <HomeContainer {...props} landingToggle={landingToggle} todoToggle={todoToggle} user={user} clearUser={clearUser}  />}
             />
         {/* </Switch> */}
         </>

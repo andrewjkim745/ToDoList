@@ -12,8 +12,10 @@ export const createItem = async item => {
 
 export const getItems = async () => {
   try {
+    console.log('getting items')
     const resp = await api.get("/todos");
-    return resp.data.items;
+    console.log('getting items', resp.data.ToDos)
+    return resp.data.ToDos;
   } catch (error) {
     throw error;
   }
@@ -24,7 +26,7 @@ export const updateItem = async (id, item) => {
     console.log("ITEMMMMM", item)
     const resp = await api.put(`/todos/${id}`, item);
     console.log("Item.js Line 25");
-    return resp.data.item;
+    return resp.data.ToDos;
   } catch (error) {
     throw error;
   }
@@ -42,7 +44,7 @@ export const deleteItem = async id => {
 export const getItemById = async id => {
   try {
     const resp = await api.get(`/todos/${id}`);
-    return resp.data.item;
+    return resp.data.ToDos;
   } catch (error) {
     throw error;
   }

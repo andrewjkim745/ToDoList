@@ -9,7 +9,9 @@ export default class Container extends React.Component {
         super(props)
         this.state = {
             user: null,
-            toDos: []
+            toDos: [],
+            landingDisplay: true,
+            todoDisplay: false
         }
     }
 
@@ -17,6 +19,20 @@ export default class Container extends React.Component {
     setUser = user => this.setState({ user })
 
     clearUser = () => this.setState({ user: null })
+
+    toggleLanding = () => {
+        this.setState({
+            landingDisplay: true,
+            todoDisplay: false
+        })
+    }
+
+    toggleToDo = () => {
+        this.setState({
+            todoDisplay: true,
+            landingDisplay: false
+        })
+    }
 
 
 
