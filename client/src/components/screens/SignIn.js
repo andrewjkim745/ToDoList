@@ -25,7 +25,8 @@ export default class SignIn extends React.Component {
             modal: false,
             hovered: false,
             hidden: true,
-            registerMsg: ''
+            registerMsg: '',
+            errorMsg: ''
         }
     }
 
@@ -49,6 +50,7 @@ export default class SignIn extends React.Component {
                 this.setState({
                     loginUsername: '',
                     loginPassword: '',
+                    errorMsg: 'Invalid credentials'
                 })
             })
     }
@@ -132,6 +134,7 @@ export default class SignIn extends React.Component {
                                         </label>
                                         <a class='materialuiText is-size-5 is-size-6-mobile'>Forgot Password?</a>
                                     </div>
+                                    <p class='subtitle has-text-weight-normal has-text-danger'>{this.state.errorMsg ? this.state.errorMsg : null}</p>
                                     <button onClick={this.onSignIn}class='button materialui my-6 has-text-white'>Login</button>
                             </div>
                             {this.modalRender()}
