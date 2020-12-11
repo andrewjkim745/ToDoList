@@ -13,10 +13,14 @@ ToDo project for peerpal
    [x] Set up Front end/create skeleton
    
    
-   [ ] Login page
+   [x ] Login page
    
    
-   [ ] CRUD
+   [x] CRUD
    
    
-   [ ] Styling
+   [x] Styling
+   
+   
+   
+   [x]Front End and back end linked
