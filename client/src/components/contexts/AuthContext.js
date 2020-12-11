@@ -8,8 +8,15 @@ export const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         // axios sign in method goes here to set current user
-        
-    }, [currentUser]);
+        // let loginUser = window.localStorage.setIstem("jwt", res.jwt);
+
+
+        let currentToken = localStorage.getItem('token')
+        let currentUser = localStorage.getItem('user')
+        console.log(currentToken)
+        console.log(JSON.stringify(currentUser))
+    
+    }, []);
 
 
     return (

@@ -1,5 +1,6 @@
 .gradient {
-  background:linear-gradient(120deg, #00d1b2, #FFFFFF);
+  background: rgb(68,163,207);
+  background: linear-gradient(260deg, rgba(68,163,207,1) 0%, rgba(63,81,181,1) 100%);
 }
 
 .boxshadow {
@@ -30,7 +31,6 @@
   position: relative;
   background-color: #00d1b2;
   align-self: flex-end;
-  width: 70%;
   justify-content: center;
   animation-name: openModal;
   animation-duration: .2s;
@@ -42,20 +42,30 @@
 .pointer { 
   cursor: pointer;
   animation-name: sideBarHover;
-  animation-duration: .5s;
+  animation-duration: .3s;
   animation-fill-mode: forwards;
   transition: 1s ease-in;
 }
-
+.point {
+  cursor: pointer;
+}
 .pointerOut {
   animation-name: sideBarHoverLeave;
   animation-duration: 1s;
   transition: 1s ease-out;
 }
 
+.materialui {
+  background-color: #3f51b5
+  
+}
+.materialuiText {
+  color: #3f51b5
+}
+
 .fadeIn {
   opacity: 1;
-  animation: fadeIn 1s linear
+  animation: fadeIn 2s linear
 }
 
 .fadeOut {
@@ -76,10 +86,10 @@
 }
 @keyframes openModal {
   0% {width: 10%} 
-  25% {width: 22% }
-  50% {width: 34% }
-  75% {width: 46% }
-  100% { width: 70% }
+  25% {width: 30% }
+  50% {width: 50% }
+  75% {width: 70% }
+  100% { width: 90% }
 
 }
 @keyframes sideBarHover { 

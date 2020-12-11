@@ -1,9 +1,9 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const { ToDos, User } = require("../models");
+const { ToDo, User } = require("../models");
 
 const SALT_ROUNDS = 11;
-const TOKEN_KEY = "andrewscoolkey";
+const TOKEN_KEY = process.env.TOKEN_KEY
 
 
 const signUp = async (req, res) => {
@@ -33,14 +33,14 @@ const signUp = async (req, res) => {
 
 const signIn = async (req, res) => {
   try {
-    console.log('hello' ,req.body);
-    const { username, password } = req.body;
+    const { loginUsername, username, loginPassword } = req.body;
     const user = await User.findOne({
       where: {
-        username,
+        username: loginUsername
       }
     });
-    if (await bcrypt.compare(password, user.dataValues.password_digest)) {
+    console.log('this is the user', user)
+    if (await bcrypt.compare(loginPassword, user.dataValues.password_digest)) {
       const payload = {
         id: user.id,
         username: user.username,
@@ -79,7 +79,7 @@ const changePassword = async (req, res) => {
 const createToDo = async (req, res) => {
   try {
     console.log("req.body:", req.body);
-    const createdTodo = await ToDos.create(req.body);
+    const createdTodo = await ToDo.create(req.body);
     return res.status(201).json({
       createdTodo,
     });
@@ -91,7 +91,8 @@ const createToDo = async (req, res) => {
 
 const getAllToDos = async (req, res) => {
   try {
-    const ToDos = await ToDos.findAll();
+    console.log('hello getting all items')
+    const ToDos = await ToDo.findAll();
     return res.status(200).json({ ToDos });
   } catch (error) {
     return res.status(500).send(error.message);
@@ -105,12 +106,14 @@ const getAllToDos = async (req, res) => {
 
 const getToDoById = async (req, res) => {
   try {
+    console.log('i am here', req.params.id)
     const { id } = req.params;
-    const ToDo = await Todos.findOne({
+    console.log('hello')
+    const Todo = await ToDo.findOne({
       where: { id: id }
     });
     if (Todo) {
-      return res.status(200).json({ ToDo});
+      return res.status(200).json({ Todo});
     }
     return res.status(404).send("Todo not found!");
   } catch (error) {
@@ -137,11 +140,11 @@ const updateToDo = async (req, res) => {
   try {
     const { id } = req.params;
     console.log("TODO", req.body, "id", id)
-    const [updated] = await Todos.update(req.body, {
+    const [updated] = await ToDo.update(req.body, {
       where: { id: id }
     });
     if (updated) {
-      const updatedToDo = await ToDos.findOne({ where: { id: id } });
+      const updatedToDo = await ToDo.findOne({ where: { id: id } });
       return res.status(202).json({ ToDo: updatedToDo });
     }
     throw new Error("Item not found!");
@@ -153,7 +156,7 @@ const updateToDo = async (req, res) => {
 const deleteToDo = async (req, res) => {
   try {
     const { id } = req.params;
-    const deleted = await ToDos.destroy({
+    const deleted = await ToDo.destroy({
       where: { id: id }
     });
     if (deleted) {
